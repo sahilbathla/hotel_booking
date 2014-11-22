@@ -1,0 +1,10 @@
+== README
+
+# Hotel Booking - A simple prototype for booking hotel rooms
+
+To set it up on your machine:-
+
+    install ruby 2.1.0p0
+
+    bundle install or bundle
+    rake db:setup

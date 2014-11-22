@@ -1,0 +1,9 @@
+  <%= form_tag search_rooms_path, method: :get, class: 'room-search' do %>
+    From: 
+    <%= text_field_tag :start_date, session[:start_date], placeholder: 'From date', class: 'datepicker' %>
+    To:
+    <%= text_field_tag :end_date, session[:end_date], placeholder: 'To date', class: 'datepicker' %>
+    No. of Persons
+    <%= select_tag :persons, options_for_select([[1,1], [2,2], [3,3]], session[:persons].to_s) %>
+    <%= submit_tag :Search %>
+  <% end %>

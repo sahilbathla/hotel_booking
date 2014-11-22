@@ -1,0 +1,17 @@
+<div class="text-container margin50">
+  <% if alert %>
+    <p class="notice"><%= alert %></p>
+  <% elsif notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+  <!-- We can use cancan for proper role management -->
+  <h1>Booking details</h1>
+  <% @bookings.each do |booking| %>
+    <div class='rooms'>
+      <p><%= "#{ booking.room.class.name.titleize }" %></p>
+      <p><%= "Check in:- #{ booking.start_date }" %></p>
+      <p><%= "Check out:- #{ booking.end_date }" %></p>
+      <p><%= link_to 'Details', booking_path(booking), class: 'white-link' %>
+    </div>
+  <% end %>
+</div>

@@ -1,0 +1,21 @@
+<div class="text-container margin50">
+  <% if alert %>
+    <p class="notice"><%= alert %></p>
+  <% elsif notice %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+  <!-- We can use cancan for proper role management -->
+  <% if @user == current_user %>
+    <h1>Booking details</h1>
+    <div class='rooms'>
+      <p><%= "#{ @room.class.name.titleize }" %></p>
+      <p><%= "Room no:- #{ @room.name }" %></p>
+      <p><%= "Booked by:- #{ @user.email }" %></p>
+      <p><%= "Total Cost:- #{ @booking.price }" %></p>
+      <p><%= "Check in:- #{ @booking.start_date }" %></p>
+      <p><%= "Check out:- #{ @booking.end_date }" %></p>
+    </div>
+  <% else %>
+    <p> You can only view your own bookings </p>
+  <% end %>
+</div>

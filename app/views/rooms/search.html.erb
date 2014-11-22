@@ -1,0 +1,27 @@
+<div class="content">
+  <%= render 'search_bar' %>
+  <div class="text-container">
+    <h1>Search Results:- </h1>
+      <% if flash[:error] %>
+        <p class="error"><%= flash[:error] %></p>
+      <% elsif @rooms.blank? %>
+        <p class="error"> Rooms not available for selected date </p>
+      <% else %>
+        <!-- This can be moved to helpers -->
+        <% available_rooms = @rooms.count.to_a.map { |_elem| _elem.last } %>
+        <% @rooms.each_with_index do |room, i| %>
+          <div class='rooms'>
+            <h1><%= "#{ room.class.name.titleize }" %></h1>
+            <%= image_tag "pic#{ i + 17 }.jpg" %><br/>
+            <%= "Available Rooms:- #{ available_rooms[i] }" %><br/>
+            <%= form_tag room_bookings_path(room_id: room.id) do %>
+              <%= hidden_field_tag :start_date, @start_date %>
+              <%= hidden_field_tag :end_date, @end_date %>
+              <%= hidden_field_tag :persons, params[:persons] %>
+              <%= submit_tag 'Book Now', class: :book, data: { confirm: 'Are you sure you want to make this booking?' } %>
+            <% end %>
+          </div>
+        <% end %>
+      <% end %>
+  </div>
+</div>
