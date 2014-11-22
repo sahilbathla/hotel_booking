@@ -1,12 +1,14 @@
-# Hotel Booking - A simple prototype for booking hotel rooms
+# Hotel Booking - A simple prototype for booking hotel rooms(Rails 4.1.5)
 
 To set it up on your machine:-
 
     install ruby 2.1.0p0
+      https://www.ruby-lang.org/en/downloads/
     git clone git@github.com:sahilbathla/hotel_booking.git
+    gem install bunder
     bundle install or bundle
     rake db:setup
-    rails s
+    rails server
 
 # API Usage
 
